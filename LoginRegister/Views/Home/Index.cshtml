@@ -1,0 +1,376 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCloseModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputNameUpdate" id="inputNameUpdate">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="inputAgeUpdate" id="inputAgeUpdate">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputSex" class="col-sm-2 col-form-label">Sex</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputSexUpdate" id="inputSexUpdate">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputPhoneUpdate" id="inputPhoneUpdate">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputAddressUpdate" id="inputAddressUpdate">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputJob" class="col-sm-2 col-form-label">Job</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputJobUpdate" id="inputJobUpdate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="handleCloseModalEdit()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="btnUpdate" type="button" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalAddNew" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputName" id="inputName">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="inputAge" id="inputAge">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputSex" class="col-sm-2 col-form-label">Sex</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputSex" id="inputSex">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputPhone" id="inputPhone">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputAddress" id="inputAddress">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputJob" class="col-sm-2 col-form-label">Job</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inputJob" id="inputJob">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCloseModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="btnAdd" type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead class="thead-dark ">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">View</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-cotent">
+            </tbody>
+        </table>
+        <button id="btnAddNew" type="button" class="btn btn-primary btn-light" data-toggle="modal" data-target="#exampleModalAddNew">Add new</button>
+        <ul id="listUser">
+        </ul>
+        @*<div>
+            <div>
+                <label for="">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="">Age</label>
+                <input type="" name="age" id="age">
+            </div>
+            <div>
+                <button id="create">Gửi</button>
+            </div>
+        </div>*@
+    </div>
+</body>
+</html>
+
+<script>
+/*    const $ = document.querySelector.bind(document)*/
+    const userApi = 'http://localhost:51580/api/User'
+    var userModel = null
+    
+    //function start() {
+    //    getUser(renderUsers)
+    //}
+
+    //function getUser(callback) {
+    //    fetch(userApi)
+    //        .then(response => {
+    //            return response.json()
+    //        })
+    //        .then(callback)
+    //}
+    //function postUser() {
+
+    //}
+
+    function start() {
+        getUser(renderUsers)
+    }
+    function getUser(callback) {
+        fetch(userApi)
+            .then(response => {
+                return response.json()
+            })
+            .then(callback)
+    }
+    start()
+    function renderUsers(callback) {
+        var htmls = callback.map(user => {
+            return ` <tr>
+                    <th scope="row">${user.id}</th>
+                    <td>${user.name}</td>
+                    <td>${user.age}</td>
+                    <td>${user.sex}</td>
+                    <td><button type="button" onClick="viewDetail(${user.id})" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">View</button></td>
+                    <td><button onclick="handleDeleteUser(${user.id})" type="button" class="btn btn-danger">Delete</button></td>
+                </tr>`
+        })
+        document.querySelector('.tbody-cotent').innerHTML = htmls.join('')
+    }
+
+    document.querySelector('#btnAdd').onclick = function () {
+        $.ajax({
+            type: 'POST',
+            url: '/api/User',
+            data: {
+                'name': `${document.querySelector('input[name="inputName"]').value}`,
+                'age': `${document.querySelector('input[name="inputAge"]').value}`,
+                'sex': `${document.querySelector('input[name="inputSex"]').value}`,
+                'phone': `${document.querySelector('input[name="inputPhone"]').value}`,
+                'address': `${document.querySelector('input[name="inputAddress"]').value}`,
+                'job': `${document.querySelector('input[name="inputJob"]').value}`
+            },
+            success: (response) => {
+                getUser(renderUsers)
+                document.querySelector('#exampleModalAddNew').classList.remove('show', 'in')
+                document.querySelector('#exampleModalAddNew').display = "none"
+                document.querySelector('body').classList.remove('modal-open')
+                document.querySelector('#exampleModalEdit').setAttribute('aria-hidden', 'false')
+            },
+            error: (e) => { console.log(e) }
+        })
+    }
+    document.querySelector('#btnUpdate').onclick = function () {
+        $.ajax({
+            type: 'PUT',
+            url: '/api/User',
+            data: {
+                'id': userModel.id,
+                'name': document.querySelector('input[name="inputNameUpdate"]').value,
+                'age': document.querySelector('input[name="inputAgeUpdate"]').value,
+                'sex': document.querySelector('input[name="inputSexUpdate"]').value,
+                'phone': document.querySelector('input[name="inputPhoneUpdate"]').value,
+                'address': document.querySelector('input[name="inputAddressUpdate"]').value,
+                'job': document.querySelector('input[name="inputJobUpdate"]').value
+            },
+            success: (response) => {
+                document.querySelector('#exampleModalEdit').classList.remove('show', 'in')
+                document.querySelector('#exampleModalEdit').display = "none"
+                document.querySelector('body').classList.remove('modal-open')
+                location.reload()
+
+            },
+            error: (e) => {
+                console.log(e)
+            }
+        })
+    }
+    //$('#btnUpdate').click(() => {
+    //    $.ajax({
+    //        type: 'PUT',
+    //        url: '/api/User',
+    //        data: {
+    //            'id': userModel.id,
+    //            'name': document.querySelector('input[name="inputNameUpdate"]').value,
+    //            'age': document.querySelector('input[name="inputAgeUpdate"]').value,
+    //            'sex': document.querySelector('input[name="inputSexUpdate"]').value,
+    //            'phone': document.querySelector('input[name="inputPhoneUpdate"]').value,
+    //            'address': document.querySelector('input[name="inputAddressUpdate"]').value,
+    //            'job': document.querySelector('input[name="inputJobUpdate"]').value
+    //        },
+    //        success: (response) => {
+    //            document.querySelector('#exampleModalEdit').classList.remove('show', 'in')
+    //            document.querySelector('#exampleModalEdit').display = "none"
+    //            document.querySelector('body').classList.remove('modal-open')
+    //            getUser(renderUsers)
+    //        },
+    //        error: (e) => {
+    //            console.log(e)
+    //        }
+    //    })
+    //})
+    //start()
+    //document.querySelector( '#create').onclick = function () {
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: '/api/User',
+    //        success: (response) => {
+    //            renderUsers(response)
+    //        },
+    //        error: (e) => { }
+    //    })
+    //}
+    function viewDetail(id) {
+        $.ajax({
+            type: 'GET',
+            url: `/api/User?id=${id}`,
+            success: (response) => {
+                handleViewDetail(response)
+            },
+            error: (e) => { }
+        })
+    }
+
+    function handleDeleteUser(id) {
+        $.ajax({
+            type: 'Delete',
+            url: `/api/User/${id}`,
+            success: (response) => {
+                getUser(renderUsers)
+            },
+            error: (e) => {
+                console.log(e)
+            }
+        })
+    }
+    function handleViewDetail(user) {
+        let html = `<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Job</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-cotent">
+                 <tr>
+                    <th scope="row">${user.id}</th>
+                    <td>${user.name}</td>
+                    <td>${user.age}</td>
+                    <td>${user.sex}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.address}</td>
+                    <td>${user.job}</td>
+                    <td><button type="button" onClick="clickTest()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>`
+        document.querySelector('.modal-body').innerHTML = html;
+        userModel = user
+    } 
+
+    function clickTest() {
+        let exampleModalEdit = document.querySelector('#exampleModalEdit').classList.contains('show in')
+        if (!exampleModalEdit) {
+            document.querySelector('body').classList.add('modal-open')
+            document.querySelector('#exampleModalEdit').classList.add('show', 'in')
+            document.querySelector('#exampleModalEdit').style.display = 'block'
+            document.querySelector('#exampleModalEdit').setAttribute('aria-hidden','false')
+        }
+        document.querySelector('#inputNameUpdate').setAttribute('value', userModel.name)
+        document.querySelector('#inputAgeUpdate').setAttribute('value', userModel.age)
+        document.querySelector('#inputSexUpdate').setAttribute('value', userModel.sex)
+        document.querySelector('#inputPhoneUpdate').setAttribute('value', userModel.phone)
+        document.querySelector('#inputAddressUpdate').setAttribute('value', userModel.address)
+        document.querySelector('#inputJobUpdate').setAttribute('value', userModel.job)
+    }
+
+    function handleCloseModalEdit() {
+        let eModalEdit = document.querySelector('#exampleModalEdit')
+        eModalEdit.classList.remove('show')
+        eModalEdit.classList.remove('in')
+        eModalEdit.style.display='none'
+        document.querySelector('#exampleModalEdit').setAttribute('aria-hidden', 'true')
+    }
+</script>
